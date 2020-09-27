@@ -64,17 +64,17 @@ echo "keycloak-freeipa-trigger.sh: File formatting finished. Final file: ";
 cat /keycloak-work/freeipa-realm.json
 
 # Done here instead of in Dockerfile just due to size of the image
-if ls /keycloak-work/keycloak-demo* ; then
+if ls /keycloak-work/keycloak-11.0.2 ; then
   echo "keycloak-freeipa-trigger.sh: Keycloak already prepared. Skip preparing";
 else
   echo "keycloak-freeipa-trigger.sh: Preparing keycloak";
   cd /keycloak-work 
-  tar xf /keycloak-work/keycloak-dist/keycloak-demo*.tar.gz
-  mv /keycloak-work/keycloak-demo*/keycloak kc
+  tar xf /keycloak-work/keycloak-dist/keycloak-11.0.2.tar.gz
+  mv /keycloak-work/keycloak-11.0.2/ kc
 fi;
 
 echo "Set Java 8 as default java"
-export JAVA_HOME="/keycloak-work/keycloak-dist/openjdk8";
+export JAVA_HOME="/keycloak-work/keycloak-dist/openjdk-11";
 export PATH="$JAVA_HOME/bin:$PATH";
 
 echo "keycloak-freeipa-trigger.sh: Running keycloak";

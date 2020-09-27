@@ -1,6 +1,7 @@
-FROM adelton/freeipa-server:fedora-20
+FROM freeipa/freeipa-server:fedora-32
 
 RUN mkdir /keycloak-work
+RUN chmod 777 /data
 ADD keycloak-dist /keycloak-work/keycloak-dist
 ADD freeipa-realm.json /keycloak-work/freeipa-realm.json
 ADD keycloak-freeipa-trigger.sh /keycloak-work/keycloak-freeipa-trigger.sh
